@@ -5,7 +5,7 @@ using UnityEngine;
 public class MinigameManager : MonoBehaviour
 {
     public GameObject minigameUIParent;
-    public GameObject[] minigames;
+    public Minigame[] minigames;
     public GameObject currentMinigame;
 
     // Start is called before the first frame update
@@ -27,7 +27,7 @@ public class MinigameManager : MonoBehaviour
         Animator minigameUIAnimator = minigameUIParent.GetComponent<Animator>();
         minigameUIAnimator.SetBool("isMinigameOpen", true);
 
-        GameObject minigameObject = Instantiate(minigames[minigameId], minigameUIParent.transform);
+        GameObject minigameObject = Instantiate(minigames[minigameId].gameObject, minigameUIParent.transform);
         minigameObject.transform.SetSiblingIndex(0);
         currentMinigame = minigameObject;
     }
