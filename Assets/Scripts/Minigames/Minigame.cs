@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Minigame : MonoBehaviour
+public abstract class Minigame : MonoBehaviour
 {
     // when creating new minigames, we need to:
     /**
@@ -12,21 +12,16 @@ public class Minigame : MonoBehaviour
         - add the Minigame prefab to the list of minigames under MinigameManager (ensuring that the index matches the id of the minigame (maybe find a better way to do this?))
     **/
 
-    private MinigameManager minigameManager;
+    protected MinigameManager minigameManager;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    private void Start() {
         minigameManager = FindObjectOfType<MinigameManager>();
+        OnMinigameStart();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    protected abstract void OnMinigameStart();
 
-    public void endMinigame() {
+    public void endMinigame(bool didWin) {
         minigameManager.closeMinigame();
     }
 }
