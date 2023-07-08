@@ -20,6 +20,7 @@ public class MinigameManager : MonoBehaviour
         
     }
 
+    // just selects from list of minigames given by minigameId, which is pretty much the index of the minigames array
     public void startMinigame(int minigameId) {
         minigameUIParent.SetActive(true);
 
