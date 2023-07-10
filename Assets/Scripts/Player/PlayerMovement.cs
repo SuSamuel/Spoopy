@@ -13,16 +13,24 @@ public class PlayerMovement : MonoBehaviour
 
     public bool facingRight = true;
 
+    private Player player;
+
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         _renderer = GetComponent<SpriteRenderer>();
+        player = GetComponent<Player>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        handleMovementInput();
+    }
+
+    private void handleMovementInput() {
+        if(player.GetMinigameManager().inMinigame) return;
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
         moveInput.Normalize();

@@ -22,6 +22,10 @@ public class Player : MonoBehaviour
         }
     }
 
+    public MinigameManager GetMinigameManager() {
+        return minigameManager;
+    }
+
     // a -1 minigameID indicates no minigame in proximity
     public void setCurrentMinigame(int minigameID) {
         currentMinigameId = minigameID;

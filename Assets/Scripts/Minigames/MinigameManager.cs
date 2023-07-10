@@ -7,11 +7,12 @@ public class MinigameManager : MonoBehaviour
     public GameObject minigameUIParent;
     public Minigame[] minigames;
     public GameObject currentMinigame;
+    public bool inMinigame;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        inMinigame = false;
     }
 
     // Update is called once per frame
@@ -22,6 +23,8 @@ public class MinigameManager : MonoBehaviour
 
     // just selects from list of minigames given by minigameId, which is pretty much the index of the minigames array
     public void startMinigame(int minigameId) {
+        if(inMinigame) return;
+        inMinigame = true;
         minigameUIParent.SetActive(true);
 
         Animator minigameUIAnimator = minigameUIParent.GetComponent<Animator>();
@@ -34,6 +37,7 @@ public class MinigameManager : MonoBehaviour
 
     public void closeMinigame() {
         Debug.Log("Closing minigame");
+        inMinigame = false;
         Animator minigameUIAnimator = minigameUIParent.GetComponent<Animator>();
         minigameUIAnimator.SetBool("isMinigameOpen", false);
         minigameUIParent.SetActive(false);
