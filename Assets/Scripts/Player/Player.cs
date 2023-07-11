@@ -17,8 +17,15 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        handleInputs();
+    }
+
+    private void handleInputs() {
         if(Input.GetKeyDown("e")) {
             enterMinigame();
+        }
+        if(Input.GetKeyDown("escape")) {
+            if(minigameManager.inMinigame) minigameManager.closeMinigame();
         }
     }
 

@@ -61,6 +61,8 @@ public class KeyMinigame : Minigame
 
             RawImage image = keyObject.GetComponent<RawImage>();
             image.texture = keyImages[i].key;
+
+            keyObject.GetComponent<RectTransform>().sizeDelta = new Vector2(image.texture.width, image.texture.height);
             
             KeyObject key = keyObject.GetComponent<KeyObject>();
             key.setKeyId(i);
