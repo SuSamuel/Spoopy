@@ -4156,7 +4156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigameUIParent: {fileID: 1457831430}
   minigames:
-  - {fileID: 7352568400422805888, guid: bc817b3df98313e40ac4505c3014a5c5, type: 3}
+  - {fileID: 5499734766778951092, guid: bc817b3df98313e40ac4505c3014a5c5, type: 3}
   currentMinigame: {fileID: 0}
 --- !u!1001 &1637264073
 PrefabInstance:
