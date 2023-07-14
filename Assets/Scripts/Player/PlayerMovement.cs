@@ -15,12 +15,24 @@ public class PlayerMovement : MonoBehaviour
 
     private Player player;
 
+    private bool isJane;
+
+    public bool noMove = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        int checkJane = PlayerPrefs.GetInt("IsJane", 0);
+        if (checkJane == 0){
+            isJane = true;
+        }
+        else{
+            isJane = false;
+        }
         animator = GetComponent<Animator>();
         _renderer = GetComponent<SpriteRenderer>();
         player = GetComponent<Player>();
+        animator.SetBool("isJane", isJane);
     }
 
     // Update is called once per frame
@@ -30,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void handleMovementInput() {
-        if(player.GetMinigameManager().inMinigame) return;
+        if(noMove) return;
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
         moveInput.Normalize();
@@ -45,5 +57,10 @@ public class PlayerMovement : MonoBehaviour
         _renderer.flipX = !facingRight;
 
         rb.velocity = moveInput * moveSpeed;
+    }
+
+    public void ChangeChar(){
+        isJane = !isJane;
+        animator.SetBool("isJane", isJane);
     }
 }

@@ -3505,9 +3505,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -4158,6 +4158,8 @@ MonoBehaviour:
   minigames:
   - {fileID: 5499734766778951092, guid: bc817b3df98313e40ac4505c3014a5c5, type: 3}
   currentMinigame: {fileID: 0}
+  inMinigame: 0
+  playerMovement: {fileID: 4509515737355894727}
 --- !u!1001 &1637264073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5682,3 +5684,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98b93ed2d4526aa418298168a48ff3d0, type: 3}
+--- !u!114 &4509515737355894727 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4963235863072202218, guid: 98b93ed2d4526aa418298168a48ff3d0, type: 3}
+  m_PrefabInstance: {fileID: 4509515737355894726}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd7919cf8f210af4da341b2da214d5e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

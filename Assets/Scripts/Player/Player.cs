@@ -42,4 +42,5 @@ public class Player : MonoBehaviour
         if(currentMinigameId == -1) return;
         minigameManager.startMinigame(currentMinigameId);
     }
+
 }
