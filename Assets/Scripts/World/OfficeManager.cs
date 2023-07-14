@@ -21,6 +21,14 @@ public class OfficeManager : MonoBehaviour
         janeDesk.SetActive(false);
         janeAnimation.SetActive(false);
         map.GetComponent<SpriteRenderer>().sprite = janeMap;
+        int checkJane = PlayerPrefs.GetInt("IsJane", 0);
+        if (checkJane == 0){
+            isJane = true;
+        }
+        else{
+            isJane = false;
+        }
+        SetStart();
     }
 
     public void changeChar(){
@@ -31,6 +39,7 @@ public class OfficeManager : MonoBehaviour
             omenAnimation.SetActive(false);
             map.GetComponent<SpriteRenderer>().sprite = omenMap;
             isJane = false;
+            PlayerPrefs.SetInt("IsJane", 1);
         }
         else if (!isJane){
             janeDesk.SetActive(false);
@@ -39,6 +48,24 @@ public class OfficeManager : MonoBehaviour
             omenAnimation.SetActive(true);
             map.GetComponent<SpriteRenderer>().sprite = janeMap;
             isJane = true;
+            PlayerPrefs.SetInt("IsJane", 0);
+        }
+    }
+
+    private void SetStart(){
+        if (isJane){
+            janeDesk.SetActive(false);
+            janeAnimation.SetActive(false);
+            omenDesk.SetActive(true);
+            omenAnimation.SetActive(true);
+            map.GetComponent<SpriteRenderer>().sprite = janeMap;
+        }
+        else{
+            janeDesk.SetActive(true);
+            janeAnimation.SetActive(true);
+            omenDesk.SetActive(false);
+            omenAnimation.SetActive(false);
+            map.GetComponent<SpriteRenderer>().sprite = omenMap;
         }
     }
 

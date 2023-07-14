@@ -2644,6 +2644,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4697053554493640335, guid: 98b93ed2d4526aa418298168a48ff3d0, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6388703429711322435, guid: 98b93ed2d4526aa418298168a48ff3d0, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2652,10 +2656,18 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6388703429711322435, guid: 98b93ed2d4526aa418298168a48ff3d0, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6805147639576353078, guid: 98b93ed2d4526aa418298168a48ff3d0, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6952471103608496590, guid: 98b93ed2d4526aa418298168a48ff3d0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 39404373c3af8264a8c3d38650e7479d, type: 2}
     - target: {fileID: 7032151128941148950, guid: 98b93ed2d4526aa418298168a48ff3d0, type: 3}
       propertyPath: m_IsActive
       value: 0

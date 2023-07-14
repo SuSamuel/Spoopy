@@ -15,16 +15,24 @@ public class PlayerMovement : MonoBehaviour
 
     private Player player;
 
-    private bool isJane = true;
+    private bool isJane;
 
     public bool noMove = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        int checkJane = PlayerPrefs.GetInt("IsJane", 0);
+        if (checkJane == 0){
+            isJane = true;
+        }
+        else{
+            isJane = false;
+        }
         animator = GetComponent<Animator>();
         _renderer = GetComponent<SpriteRenderer>();
         player = GetComponent<Player>();
+        animator.SetBool("isJane", isJane);
     }
 
     // Update is called once per frame
