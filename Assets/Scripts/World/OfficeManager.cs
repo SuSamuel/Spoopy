@@ -30,6 +30,7 @@ public class OfficeManager : MonoBehaviour
             omenDesk.SetActive(false);
             omenAnimation.SetActive(false);
             map.GetComponent<SpriteRenderer>().sprite = omenMap;
+            isJane = false;
         }
         else if (!isJane){
             janeDesk.SetActive(false);
@@ -37,6 +38,7 @@ public class OfficeManager : MonoBehaviour
             omenDesk.SetActive(true);
             omenAnimation.SetActive(true);
             map.GetComponent<SpriteRenderer>().sprite = janeMap;
+            isJane = true;
         }
     }
 
