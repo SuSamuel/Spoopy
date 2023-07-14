@@ -9,6 +9,8 @@ public class MinigameManager : MonoBehaviour
     public GameObject currentMinigame;
     public bool inMinigame;
 
+    public PlayerMovement playerMovement;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class MinigameManager : MonoBehaviour
     public void startMinigame(int minigameId) {
         if(inMinigame) return;
         inMinigame = true;
+        playerMovement.noMove = true;
         minigameUIParent.SetActive(true);
 
         Animator minigameUIAnimator = minigameUIParent.GetComponent<Animator>();
@@ -38,6 +41,7 @@ public class MinigameManager : MonoBehaviour
     public void closeMinigame() {
         Debug.Log("Closing minigame");
         inMinigame = false;
+        playerMovement.noMove = false;
         Animator minigameUIAnimator = minigameUIParent.GetComponent<Animator>();
         minigameUIAnimator.SetBool("isMinigameOpen", false);
         minigameUIParent.SetActive(false);
