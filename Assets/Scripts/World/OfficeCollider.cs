@@ -9,6 +9,8 @@ public class OfficeCollider : MonoBehaviour
 
     public GameObject officeManager;
 
+    public bool jobBoard = false;
+
     // Start is called before the first frame update
     void Start()
     {   
@@ -22,8 +24,11 @@ public class OfficeCollider : MonoBehaviour
             if(changeChar){
                 player.changeChar = true;
             }
-            else{
+            else if (jobBoard){
                 player.jobBoard = true;
+            }
+            else{
+                player.exit = true;
             }
             officeManager.GetComponent<OfficeManager>().ShowText();
         }

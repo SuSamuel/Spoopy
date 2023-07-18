@@ -8,12 +8,17 @@ public class OfficePlayer : MonoBehaviour
     private PlayerMovement playerMovement;
     public bool changeChar = false;
     public bool jobBoard = false;
+    public bool exit = false;
 
-    public GameObject officeManager;
+    public GameObject office;
+
+    private OfficeManager officeManager;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        officeManager = FindObjectOfType<OfficeManager>();
         playerCollider = GetComponent<Collider2D>();
         playerMovement = GetComponent<PlayerMovement>();
     }
@@ -28,15 +33,22 @@ public class OfficePlayer : MonoBehaviour
         if(Input.GetKeyDown("e")) {
             enterSelection();
         }
+        if(Input.GetKeyDown("escape")) {
+            if(officeManager.inJobBoard) officeManager.CloseJobBoard();
+        }
     }
 
     private void enterSelection(){
         if(changeChar){
             playerMovement.ChangeChar();
-            officeManager.GetComponent<OfficeManager>().changeChar();
+            officeManager.changeChar();
         }
-        if(jobBoard){
-            playerMovement.noMove = true;
+        else if(jobBoard){
+            officeManager.ShowJobBoard();
+        }
+
+        else if (exit){
+            officeManager.LeaveMap();
         }
     }
 
