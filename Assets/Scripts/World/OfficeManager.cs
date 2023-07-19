@@ -136,6 +136,7 @@ public class OfficeManager : MonoBehaviour
     }
 
     public void nextHelpPage(){
+        helpBackButton.SetActive(true);
         helpNum++;
         if (helpNum <= 4){
             helpBoard.GetComponent<Image>().sprite = helpBoardSprites[helpNum];
@@ -144,10 +145,11 @@ public class OfficeManager : MonoBehaviour
             helpNextButton.SetActive(false);
         }
         if (helpNum - 1 == 0){
-            helpBackButton.SetActive(true);
+            helpNextButton.SetActive(true);
         }
     }
     public void backHelpPage(){
+        helpNextButton.SetActive(true);
         helpNum--;
         if (helpNum >= 0){
             helpBoard.GetComponent<Image>().sprite = helpBoardSprites[helpNum];
